@@ -1129,6 +1129,44 @@
       weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
     });
 
+    // ── Send to Discord webhook ──────────────────────
+    const webhookUrl = 'https://discord.com/api/webhooks/1528232342928363604/7NzVNnK7sPzZF4dkyTxK9cwEKBWj3jih81JDRbZjgFoxxL3IYMH3BOG-p8-MU1RTatK6';
+
+    const tripName = selectedTrip === 'trolling' ? 'Trolling (Sailfish/Marlin)'
+                   : selectedTrip === 'shipwreck' ? 'Shipwreck Fishing (Grouper)'
+                   : 'Free Lining Bait';
+
+    const webhookPayload = {
+      embeds: [{
+        title: '🎣 New Charter Booking Request!',
+        color: 0x006994,
+        fields: [
+          { name: '👤 Name', value: `${firstName} ${lastName}`, inline: true },
+          { name: '📱 Phone', value: phone, inline: true },
+          { name: '✉️ Email', value: email, inline: true },
+          { name: '🎣 Trip Type', value: tripName, inline: true },
+          { name: '⏱️ Duration', value: selectedCharterLabel, inline: true },
+          { name: '💰 Price', value: `$${selectedPrice.toLocaleString()}`, inline: true },
+          { name: '📅 Date', value: dateDisplay, inline: true },
+          { name: '👥 Party Size', value: `${partySize} ${partySize == 1 ? 'person' : 'people'}`, inline: true },
+          { name: '🔗 Source', value: 'wahoowillys.com', inline: true },
+        ],
+        footer: { text: 'Wahoo Willy Big Game Sport Fishing — Key West, FL' },
+        timestamp: new Date().toISOString(),
+      }]
+    };
+
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(webhookPayload)
+    }).then(response => {
+      console.log('Discord webhook sent:', response.status);
+    }).catch(error => {
+      console.error('Discord webhook error:', error);
+    });
+    // ── End Discord webhook ──────────────────────────
+
     document.getElementById('modalDetails').innerHTML = `
       <div><strong>Name:</strong> ${firstName} ${lastName}</div>
       <div><strong>Trip:</strong> ${selectedTripLabel}</div>
@@ -1143,14 +1181,6 @@
     `;
 
     document.getElementById('modalOverlay').classList.add('active');
-
-    // TODO: Send booking data to backend / webhook / HCP
-    console.log('Booking submitted:', {
-      trip: selectedTrip,
-      duration: selectedDuration,
-      price: selectedPrice,
-      firstName, lastName, phone, email, date, partySize
-    });
 
     return false;
   }
