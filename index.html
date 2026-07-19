@@ -8,7 +8,7 @@
 
 <!-- Social Media Preview -->
 <meta property="og:title" content="Wahoo Willy Big Game Sport Fishing — Key West, FL">
-<meta property="og:description" content="Book a big game sport fishing charter in Key West. Trolling for sailfish & marlin, shipwreck fishing for grouper, free-lining live bait. 4hr ($650) & 8hr ($1,100) charters.">
+<meta property="og:description" content="Book a big game sport fishing charter in Key West. Trolling for sailfish & marlin, shipwreck fishing for grouper, free-lining live bait. 4hr ($1,000), 6hr ($1,200) & 8hr ($1,500) charters.">
 <meta property="og:image" content="assets/social-preview.jpeg">
 <meta property="og:image:width" content="806">
 <meta property="og:image:height" content="1014">
@@ -827,17 +827,19 @@
   </div>
 
   <div class="trips-grid">
-    <!-- Trolling -->
+    <!-- Bluewater Big Game -->
     <div class="trip-card">
       <div class="trip-card-header">
-        <h3>TROLLING</h3>
+        <h3>BLUEWATER BIG GAME</h3>
       </div>
       <div class="trip-card-body">
-        <p>Hunt the deep blue for the pelagic giants of the Atlantic. We run rigged baits and lures across the reef edge and offshore ledges where sailfish and marlin prowl.</p>
+        <p>Troll the deep blue or free-line live bait across the reef edge — whatever's biting, we're on 'em. Pelagic giants on light or heavy tackle, acrobatic jumps, lightning runs.</p>
         <ul>
-          <li>Sailfish — acrobatic jumps, lightning runs</li>
-          <li>Blue & white marlin — the trophy of a lifetime</li>
-          <li>Wahoo, mahi-mahi, kingfish, tuna — bycatch is dinner</li>
+          <li>Mahi-mahi — fast action, great dinner</li>
+          <li>Sailfish — acrobatic jumps, catch & release</li>
+          <li>Wahoo — blistering speed, razor teeth</li>
+          <li>Marlin — the trophy of a lifetime</li>
+          <li>Tuna — hard-fighting, sushi-grade</li>
         </ul>
       </div>
     </div>
@@ -856,21 +858,6 @@
         </ul>
       </div>
     </div>
-
-    <!-- Free Lining -->
-    <div class="trip-card">
-      <div class="trip-card-header">
-        <h3>FREE LINING BAIT</h3>
-      </div>
-      <div class="trip-card-body">
-        <p>The art of the natural drift. Live bait swimming free on a circle hook — no weight, no swivel, just you and whatever's hunting the current lines.</p>
-        <ul>
-          <li>Tarpon — the silver king on light tackle</li>
-          <li>Sailfish & kingfish — chasing live bait on the surface</li>
-          <li>Mahi-mahi, snapper, grouper — anything eats a live bait</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -886,17 +873,13 @@
       <div class="trip-select">
         <label>Trip Type</label>
         <div class="option-grid">
-          <div class="option-card selected" data-trip="trolling" onclick="selectTrip(this)">
+          <div class="option-card selected" data-trip="bluewater" onclick="selectTrip(this)">
             <span class="opt-icon">🎣</span>
-            Trolling<br>Sailfish / Marlin
+            Bluewater<br>Big Game
           </div>
           <div class="option-card" data-trip="shipwreck" onclick="selectTrip(this)">
             <span class="opt-icon">⚓</span>
             Shipwreck<br>Massive Grouper
-          </div>
-          <div class="option-card" data-trip="freelining" onclick="selectTrip(this)">
-            <span class="opt-icon">🐟</span>
-            Free Lining<br>Live Bait
           </div>
         </div>
       </div>
@@ -905,14 +888,19 @@
       <div class="trip-select">
         <label>Charter Duration</label>
         <div class="charter-options">
-          <div class="charter-card selected" data-duration="4" data-price="650" onclick="selectCharter(this)">
+          <div class="charter-card selected" data-duration="4" data-price="1000" onclick="selectCharter(this)">
             <h4>Half Day</h4>
-            <div class="price">$650</div>
+            <div class="price">$1,000</div>
             <div class="duration">4 Hours on the water</div>
           </div>
-          <div class="charter-card" data-duration="8" data-price="1100" onclick="selectCharter(this)">
+          <div class="charter-card" data-duration="6" data-price="1200" onclick="selectCharter(this)">
+            <h4>3/4 Day</h4>
+            <div class="price">$1,200</div>
+            <div class="duration">6 Hours — more time on the reef</div>
+          </div>
+          <div class="charter-card" data-duration="8" data-price="1500" onclick="selectCharter(this)">
             <h4>Full Day</h4>
-            <div class="price">$1,100</div>
+            <div class="price">$1,500</div>
             <div class="duration">8 Hours — go big</div>
           </div>
         </div>
@@ -1068,10 +1056,10 @@
 </div>
 
 <script>
-  let selectedTrip = 'trolling';
-  let selectedTripLabel = 'Trolling — Sailfish / Marlin';
+  let selectedTrip = 'bluewater';
+  let selectedTripLabel = 'Bluewater — Big Game';
   let selectedDuration = 4;
-  let selectedPrice = 650;
+  let selectedPrice = 1000;
   let selectedCharterLabel = '4 Hours (Half Day)';
 
   function selectTrip(el) {
@@ -1132,9 +1120,8 @@
     // ── Send to Discord webhook ──────────────────────
     const webhookUrl = 'https://discord.com/api/webhooks/1528232342928363604/7NzVNnK7sPzZF4dkyTxK9cwEKBWj3jih81JDRbZjgFoxxL3IYMH3BOG-p8-MU1RTatK6';
 
-    const tripName = selectedTrip === 'trolling' ? 'Trolling (Sailfish/Marlin)'
-                   : selectedTrip === 'shipwreck' ? 'Shipwreck Fishing (Grouper)'
-                   : 'Free Lining Bait';
+    const tripName = selectedTrip === 'bluewater' ? 'Bluewater Big Game (Mahi/Sailfish/Wahoo/Marlin/Tuna)'
+                   : 'Shipwreck Fishing (Grouper)';
 
     const webhookPayload = {
       embeds: [{
@@ -1191,10 +1178,10 @@
     // Reset to defaults
     document.querySelectorAll('.option-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
     document.querySelectorAll('.charter-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
-    selectedTrip = 'trolling';
-    selectedTripLabel = 'Trolling — Sailfish / Marlin';
+    selectedTrip = 'bluewater';
+    selectedTripLabel = 'Bluewater — Big Game';
     selectedDuration = 4;
-    selectedPrice = 650;
+    selectedPrice = 1000;
     selectedCharterLabel = '4 Hours (Half Day)';
     updateSummary();
   }
