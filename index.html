@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wahoo Willy's Charter Fishing — Key West, FL</title>
-<meta name="description" content="Book a sport fishing charter with Captain Willy in Key West. Trolling for sailfish and marlin, shipwreck fishing for massive grouper, and free-lining live bait. 4-hour and 8-hour charters available.">
+<title>Wahoo Willy Big Game Sport Fishing — Key West, FL</title>
+<meta name="description" content="Book a big game sport fishing charter with Captain Willy in Key West. Trolling for sailfish and marlin, shipwreck fishing for massive grouper, and free-lining live bait. 4-hour and 8-hour charters available.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -89,6 +89,16 @@
     z-index: 1;
     padding: 2rem;
     max-width: 800px;
+  }
+
+  .hero-logo {
+    width: clamp(120px, 20vw, 180px);
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: block;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    border: 4px solid rgba(255,255,255,0.2);
   }
 
   .hero h1 {
@@ -526,12 +536,140 @@
     margin-bottom: 0.5rem;
   }
 
+  /* ── GALLERY ─────────────────────────────────────── */
+  .gallery-section {
+    padding: 5rem 2rem;
+    background: var(--white);
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 2rem auto 0;
+  }
+
+  .gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, var(--ocean), var(--deep-ocean));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,105,148,0.25);
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-item .placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    padding: 1rem;
+  }
+
+  .gallery-item .placeholder .icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .gallery-item .placeholder .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: var(--white);
+    padding: 2rem 1rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-item:hover .caption {
+    opacity: 1;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: pointer;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox img {
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 60px rgba(0,0,0,0.5);
+  }
+
+  .lightbox .lb-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .lightbox .lb-close:hover { opacity: 1; }
+
+  .gallery-upload-note {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
   /* ── FOOTER ──────────────────────────────────────── */
   .footer {
     background: var(--ink);
     color: var(--white);
     padding: 3rem 2rem 2rem;
     text-align: center;
+  }
+
+  .footer-logo {
+    width: 80px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    border: 2px solid rgba(255,255,255,0.2);
   }
 
   .footer h3 {
@@ -647,8 +785,9 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <h1>WAHOO <span class="accent">WILLY'S</span></h1>
-    <div class="hero-subtitle">Sport Fishing Charters — Key West, Florida</div>
+    <img src="assets/logo.jpeg" alt="Wahoo Willy Big Game Sport Fishing logo" class="hero-logo">
+    <h1>WAHOO <span class="accent">WILLY</span></h1>
+    <div class="hero-subtitle">Big Game Sport Fishing — Key West, Florida</div>
     <a href="#book" class="hero-cta">Book Your Charter</a>
     <div class="hero-location">⚓ Key West Harbor Marina ⚓ Stock Island ⚓</div>
   </div>
@@ -820,6 +959,21 @@
   </div>
 </section>
 
+<!-- ═══════ GALLERY ═══════ -->
+<section class="gallery-section" id="gallery">
+  <div class="section-header">
+    <h2>THE CATCH</h2>
+    <p>Real fish. Real charters. Real Key West moments. Drop your photos in the <code>photos/</code> folder and they'll show up here automatically.</p>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Photos will be loaded here by JavaScript -->
+    <!-- Placeholder slots shown until real photos are uploaded -->
+  </div>
+
+  <p class="gallery-upload-note">📧 Send your charter photos to <a href="mailto:captainwilly@wahoowillys.com">captainwilly@wahoowillys.com</a> and we'll add them to the gallery!</p>
+</section>
+
 <!-- ═══════ CAPTAIN ═══════ -->
 <section class="captain-section">
   <h2>MEET CAPTAIN WILLY</h2>
@@ -834,8 +988,8 @@
       <div class="label">Sailfish Released</div>
     </div>
     <div class="stat">
-      <div class="num">USCG</div>
-      <div class="label">Licensed Captain</div>
+      <div class="num">1000+</div>
+      <div class="label">Happy Anglers</div>
     </div>
   </div>
 </section>
@@ -858,15 +1012,16 @@
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer class="footer">
-  <h3>WAHOO WILLY'S</h3>
-  <p>Sport Fishing Charters</p>
+  <img src="assets/logo.jpeg" alt="Wahoo Willy logo" class="footer-logo">
+  <h3>WAHOO WILLY</h3>
+  <p>Big Game Sport Fishing</p>
   <p>Key West, Florida</p>
   <div class="footer-contact">
     <a href="tel:+13055551234">(305) 555-1234</a><br>
     <a href="mailto:captainwilly@wahoowillys.com">captainwilly@wahoowillys.com</a>
   </div>
   <p>⚓ Booking 7 days a week ⚓ Dawn to dusk ⚓</p>
-  <div class="copyright">© 2026 Wahoo Willy's Charter Fishing. All rights reserved.</div>
+  <div class="copyright">© 2026 Wahoo Willy Big Game Sport Fishing. All rights reserved.</div>
 </footer>
 
 <!-- ═══════ CONFIRMATION MODAL ═══════ -->
@@ -878,6 +1033,12 @@
     <div class="modal-details" id="modalDetails"></div>
     <button class="modal-close" onclick="closeModal()">Tight Lines! 🎣</button>
   </div>
+</div>
+
+<!-- ═══════ LIGHTBOX ═══════ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close">✕</span>
+  <img src="" alt="Gallery image" id="lightboxImg">
 </div>
 
 <script>
@@ -981,6 +1142,72 @@
     selectedCharterLabel = '4 Hours (Half Day)';
     updateSummary();
   }
+
+  // ── GALLERY ───────────────────────────────────────
+  // Photo list — add new photos by dropping files in /photos/ and adding the filename here
+  const galleryPhotos = [
+    // { src: 'photos/sailfish-1.jpg', caption: '120lb sailfish — released!' },
+    // { src: 'photos/marlin-jump.jpg', caption: 'Blue marlin going airborne' },
+    // { src: 'photos/grouper-wreck.jpg', caption: 'Monster grouper from the wreck' },
+    // { src: 'photos/tarpon-fight.jpg', caption: 'Silver king on light tackle' },
+    // { src: 'photos/boat-sunset.jpg', caption: 'End of a perfect day' },
+    // { src: 'photos/mahi-spread.jpg', caption: 'Dolphin spread — mahi dinner!' },
+  ];
+
+  function loadGallery() {
+    const grid = document.getElementById('galleryGrid');
+    if (galleryPhotos.length === 0) {
+      // Show 6 placeholder slots
+      const placeholders = [
+        { icon: '🎣', label: 'Sailfish' },
+        { icon: '🐠', label: 'Marlin' },
+        { icon: '🐟', label: 'Grouper' },
+        { icon: '🦈', label: 'Tarpon' },
+        { icon: '🌅', label: 'Sunset' },
+        { icon: '⛵', label: 'The Boat' },
+      ];
+      placeholders.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.innerHTML = `
+          <div class="placeholder">
+            <span class="icon">${p.icon}</span>
+            <span class="label">${p.label}</span>
+          </div>
+        `;
+        grid.appendChild(div);
+      });
+    } else {
+      // Show real photos
+      galleryPhotos.forEach(photo => {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.onclick = () => openLightbox(photo.src);
+        div.innerHTML = `
+          <img src="${photo.src}" alt="${photo.caption || 'Charter photo'}" loading="lazy">
+          ${photo.caption ? `<div class="caption">${photo.caption}</div>` : ''}
+        `;
+        grid.appendChild(div);
+      });
+    }
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightbox').classList.add('active');
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+  }
+
+  // Keyboard: Escape closes lightbox
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // Load gallery on page load
+  loadGallery();
 </script>
 
 </body>
