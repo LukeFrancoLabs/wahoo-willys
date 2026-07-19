@@ -145,6 +145,14 @@
     letter-spacing: 1px;
   }
 
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
   .hero-cta {
     display: inline-block;
     padding: 1rem 3rem;
@@ -164,28 +172,33 @@
     box-shadow: 0 6px 30px rgba(255,140,66,0.5);
   }
 
+  .hero-call-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--white);
+    color: var(--deep-ocean);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+    border: 2px solid var(--white);
+  }
+
+  .hero-call-btn:hover {
+    background: var(--sand);
+    color: var(--deep-ocean);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(255,255,255,0.4);
+  }
+
   .hero-location {
     margin-top: 3rem;
     font-size: 0.95rem;
     opacity: 0.7;
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
-
-  .hero-phone {
-    margin-top: 1rem;
-    font-size: 1.1rem;
-    opacity: 0.9;
-  }
-
-  .hero-phone a {
-    color: var(--sun);
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .hero-phone a:hover {
-    text-decoration: underline;
   }
 
   /* ── TRIPS SECTION ────────────────────────────────── */
@@ -856,9 +869,11 @@
     <img src="assets/logo.jpeg" alt="Wahoo Willy Big Game Sport Fishing logo" class="hero-logo">
     <h1>WAHOO <span class="accent">WILLY</span></h1>
     <div class="hero-subtitle">Big Game Sport Fishing — Key West, Florida</div>
-    <a href="#book" class="hero-cta">Book Your Charter</a>
+    <div class="hero-buttons">
+      <a href="#book" class="hero-cta">Book Your Charter</a>
+      <a href="tel:+15615080029" class="hero-call-btn">📞 Call or Text: 561-508-0029</a>
+    </div>
     <div class="hero-location">⚓ Key West Harbor Marina ⚓ Stock Island ⚓</div>
-    <div class="hero-phone">📞 Call or text: <a href="tel:+15615080029">(561) 508-0029</a></div>
     <img src="assets/boat-photo.png" alt="The Wahoo Willy charter boat" class="hero-boat">
   </div>
 </section>
