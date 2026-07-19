@@ -473,6 +473,33 @@
     box-shadow: 0 4px 20px rgba(255,140,66,0.3);
   }
 
+  .tip-note {
+    background: rgba(0,105,148,0.06);
+    border-left: 3px solid var(--ocean);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+
+  .tip-note strong {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    color: var(--deep-ocean);
+    display: inline-block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tip-note #tipAmount {
+    display: block;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    color: var(--ocean);
+  }
+
   .submit-btn:hover {
     background: var(--sun-light);
     transform: translateY(-1px);
@@ -952,7 +979,7 @@
       <div class="booking-summary">
         <div class="summary-row">
           <span>Trip Type</span>
-          <span id="summaryTrip">Trolling — Sailfish / Marlin</span>
+          <span id="summaryTrip">Bluewater — Big Game</span>
         </div>
         <div class="summary-row">
           <span>Duration</span>
@@ -963,9 +990,14 @@
           <span id="summaryDate">—</span>
         </div>
         <div class="summary-row total">
-          <span>Total</span>
-          <span id="summaryTotal">$650</span>
+          <span>Trip Total</span>
+          <span id="summaryTotal">$1,000</span>
         </div>
+      </div>
+
+      <div class="tip-note">
+        <strong> gratuity guide</strong><br>
+        It's customary to tip 20% for great service — that's how Captain Willy and crew are paid. <span id="tipAmount">Suggested tip: $200</span>
       </div>
 
       <button type="submit" class="submit-btn">Request Booking</button>
@@ -1087,6 +1119,10 @@
     document.getElementById('summaryTrip').textContent = selectedTripLabel;
     document.getElementById('summaryDuration').textContent = selectedCharterLabel;
     document.getElementById('summaryTotal').textContent = '$' + selectedPrice.toLocaleString();
+
+    // Update suggested 20% tip
+    const tip = Math.round(selectedPrice * 0.20);
+    document.getElementById('tipAmount').textContent = 'Suggested tip: $' + tip.toLocaleString();
 
     const dateInput = document.getElementById('date');
     const dateDisplay = dateInput.value
