@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahoo Willy's Charter Fishing — Key West, FL</title>
+<meta name="description" content="Book a sport fishing charter with Captain Willy in Key West. Trolling for sailfish and marlin, shipwreck fishing for massive grouper, and free-lining live bait. 4-hour and 8-hour charters available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-ocean: #003366;
+    --ocean: #006994;
+    --ocean-light: #4a9ec4;
+    --sand: #f4e4bc;
+    --sun: #ff8c42;
+    --sun-light: #ffb347;
+    --coral: #e84855;
+    --white: #ffffff;
+    --ink: #1a1a2e;
+    --muted: #6b7b8d;
+    --border: #d0dae4;
+    --success: #2d8659;
+    --success-dark: #1e5c3d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--deep-ocean) 0%, var(--ocean) 50%, var(--ocean-light) 100%);
+    z-index: -2;
+  }
+
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 80%, rgba(255,140,66,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255,179,71,0.1) 0%, transparent 50%);
+    z-index: -1;
+  }
+
+  /* Animated wave overlay */
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,40 C150,80 350,0 600,40 C850,80 1050,0 1200,40 L1200,120 L0,120 Z' fill='%23f4e4bc'/%3E%3C/svg%3E") repeat-x;
+    background-size: 1200px 120px;
+    animation: wave 12s linear infinite;
+    opacity: 0.9;
+  }
+
+  @keyframes wave {
+    from { transform: translateX(0); }
+    to { transform: translateX(-1200px); }
+  }
+
+  .hero-content {
+    z-index: 1;
+    padding: 2rem;
+    max-width: 800px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero h1 .accent { color: var(--sun); }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1px;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--sun);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255,140,66,0.4);
+  }
+
+  .hero-cta:hover {
+    background: var(--sun-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(255,140,66,0.5);
+  }
+
+  .hero-location {
+    margin-top: 3rem;
+    font-size: 0.95rem;
+    opacity: 0.7;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── TRIPS SECTION ────────────────────────────────── */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--deep-ocean);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-header p {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .trip-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trip-card:hover {
+    border-color: var(--ocean);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,105,148,0.15);
+  }
+
+  .trip-card-header {
+    background: linear-gradient(135deg, var(--ocean), var(--deep-ocean));
+    color: var(--white);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .trip-card-header h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .trip-card-body {
+    padding: 1.5rem 2rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trip-card-body p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .trip-card-body ul {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .trip-card-body li {
+    padding: 0.4rem 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .trip-card-body li::before {
+    content: '🐠';
+    font-size: 0.8rem;
+  }
+
+  .trip-card-body li:nth-child(2)::before { content: '⚓'; }
+  .trip-card-body li:nth-child(3)::before { content: '🦈'; }
+
+  /* ── BOOKING SECTION ──────────────────────────────── */
+  .booking-section {
+    background: var(--sand);
+    padding: 5rem 2rem;
+  }
+
+  .booking-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  }
+
+  .booking-container h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--deep-ocean);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .booking-container > p {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  /* Trip type selector */
+  .trip-select {
+    margin-bottom: 1.5rem;
+  }
+
+  .trip-select label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--deep-ocean);
+    margin-bottom: 0.75rem;
+  }
+
+  .option-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .option-card {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .option-card:hover {
+    border-color: var(--ocean-light);
+  }
+
+  .option-card.selected {
+    border-color: var(--ocean);
+    background: rgba(0,105,148,0.08);
+    color: var(--ocean);
+  }
+
+  .option-card .opt-icon {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Charter duration */
+  .charter-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .charter-card {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+  }
+
+  .charter-card:hover {
+    border-color: var(--ocean-light);
+  }
+
+  .charter-card.selected {
+    border-color: var(--sun);
+    background: rgba(255,140,66,0.05);
+  }
+
+  .charter-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .charter-card .price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--ocean);
+    line-height: 1;
+    margin: 0.5rem 0;
+  }
+
+  .charter-card .duration {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  /* Form fields */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--deep-ocean);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--ocean);
+  }
+
+  /* Summary */
+  .booking-summary {
+    background: var(--sand);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .summary-row.total {
+    border-top: 2px solid var(--border);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--deep-ocean);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--sun);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(255,140,66,0.3);
+  }
+
+  .submit-btn:hover {
+    background: var(--sun-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 25px rgba(255,140,66,0.4);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* ── CAPTAIN SECTION ──────────────────────────────── */
+  .captain-section {
+    padding: 5rem 2rem;
+    background: var(--deep-ocean);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .captain-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .captain-section p {
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    font-size: 1.1rem;
+    opacity: 0.9;
+  }
+
+  .captain-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--sun);
+    line-height: 1;
+  }
+
+  .stat .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-top: 0.25rem;
+  }
+
+  /* ── WHAT TO BRING ────────────────────────────────── */
+  .bring-section {
+    padding: 4rem 2rem;
+    background: var(--sand);
+  }
+
+  .bring-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    max-width: 800px;
+    margin: 2rem auto 0;
+  }
+
+  .bring-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .bring-item .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  .footer {
+    background: var(--ink);
+    color: var(--white);
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+  }
+
+  .footer h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer p {
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-contact {
+    margin: 1.5rem 0;
+  }
+
+  .footer-contact a {
+    color: var(--sun);
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+
+  .footer .copyright {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.4;
+  }
+
+  /* ── CONFIRMATION MODAL ───────────────────────────── */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 3rem;
+    max-width: 450px;
+    text-align: center;
+  }
+
+  .modal .check {
+    font-size: 4rem;
+    color: var(--success);
+    margin-bottom: 1rem;
+  }
+
+  .modal h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--deep-ocean);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .modal .modal-details {
+    background: var(--sand);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .modal .modal-details div {
+    padding: 0.25rem 0;
+  }
+
+  .modal .modal-close {
+    padding: 0.8rem 2rem;
+    background: var(--ocean);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 600px) {
+    .option-grid { grid-template-columns: 1fr; }
+    .charter-options { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .captain-stats { gap: 1.5rem; }
+    .booking-container { padding: 1.5rem; }
+    .section { padding: 3rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ HERO ═══════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>WAHOO <span class="accent">WILLY'S</span></h1>
+    <div class="hero-subtitle">Sport Fishing Charters — Key West, Florida</div>
+    <a href="#book" class="hero-cta">Book Your Charter</a>
+    <div class="hero-location">⚓ Key West Harbor Marina ⚓ Stock Island ⚓</div>
+  </div>
+</section>
+
+<!-- ═══════ TRIPS ═══════ -->
+<section class="section">
+  <div class="section-header">
+    <h2>CHOOSE YOUR ADVENTURE</h2>
+    <p>Three ways to fish the Florida Keys. Pick your style, pick your time, and Captain Willy handles the rest.</p>
+  </div>
+
+  <div class="trips-grid">
+    <!-- Trolling -->
+    <div class="trip-card">
+      <div class="trip-card-header">
+        <h3>TROLLING</h3>
+      </div>
+      <div class="trip-card-body">
+        <p>Hunt the deep blue for the pelagic giants of the Atlantic. We run rigged baits and lures across the reef edge and offshore ledges where sailfish and marlin prowl.</p>
+        <ul>
+          <li>Sailfish — acrobatic jumps, lightning runs</li>
+          <li>Blue & white marlin — the trophy of a lifetime</li>
+          <li>Wahoo, mahi-mahi, kingfish, tuna — bycatch is dinner</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Shipwreck -->
+    <div class="trip-card">
+      <div class="trip-card-header">
+        <h3>SHIPWRECK FISHING</h3>
+      </div>
+      <div class="trip-card-body">
+        <p>Drop baits on Key West's legendary wrecks and reefs for bottom-dwelling bruisers. These structures hold massive fish year-round.</p>
+        <ul>
+          <li>Gag & black grouper — reef giants that test your arms</li>
+          <li>Snapper — mutton, red, mangrove, lane</li>
+          <li>Amberjack, cobia, barracuda — wrecks hold 'em all</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Free Lining -->
+    <div class="trip-card">
+      <div class="trip-card-header">
+        <h3>FREE LINING BAIT</h3>
+      </div>
+      <div class="trip-card-body">
+        <p>The art of the natural drift. Live bait swimming free on a circle hook — no weight, no swivel, just you and whatever's hunting the current lines.</p>
+        <ul>
+          <li>Tarpon — the silver king on light tackle</li>
+          <li>Sailfish & kingfish — chasing live bait on the surface</li>
+          <li>Mahi-mahi, snapper, grouper — anything eats a live bait</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ BOOKING ═══════ -->
+<section class="booking-section" id="book">
+  <div class="booking-container">
+    <h2>BOOK YOUR CHARTER</h2>
+    <p>Select your trip type and duration. Willy will confirm your date within 24 hours.</p>
+
+    <form id="bookingForm" onsubmit="return submitBooking(event)">
+
+      <!-- Trip Type -->
+      <div class="trip-select">
+        <label>Trip Type</label>
+        <div class="option-grid">
+          <div class="option-card selected" data-trip="trolling" onclick="selectTrip(this)">
+            <span class="opt-icon">🎣</span>
+            Trolling<br>Sailfish / Marlin
+          </div>
+          <div class="option-card" data-trip="shipwreck" onclick="selectTrip(this)">
+            <span class="opt-icon">⚓</span>
+            Shipwreck<br>Massive Grouper
+          </div>
+          <div class="option-card" data-trip="freelining" onclick="selectTrip(this)">
+            <span class="opt-icon">🐟</span>
+            Free Lining<br>Live Bait
+          </div>
+        </div>
+      </div>
+
+      <!-- Charter Duration -->
+      <div class="trip-select">
+        <label>Charter Duration</label>
+        <div class="charter-options">
+          <div class="charter-card selected" data-duration="4" data-price="650" onclick="selectCharter(this)">
+            <h4>Half Day</h4>
+            <div class="price">$650</div>
+            <div class="duration">4 Hours on the water</div>
+          </div>
+          <div class="charter-card" data-duration="8" data-price="1100" onclick="selectCharter(this)">
+            <h4>Full Day</h4>
+            <div class="price">$1,100</div>
+            <div class="duration">8 Hours — go big</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personal Info -->
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" id="firstName" required placeholder="John">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" id="lastName" required placeholder="Smith">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" id="phone" required placeholder="(305) 555-1234">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" required placeholder="john@example.com">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label>Party Size</label>
+          <select id="partySize" required>
+            <option value="">Select...</option>
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people (max)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="booking-summary">
+        <div class="summary-row">
+          <span>Trip Type</span>
+          <span id="summaryTrip">Trolling — Sailfish / Marlin</span>
+        </div>
+        <div class="summary-row">
+          <span>Duration</span>
+          <span id="summaryDuration">4 Hours (Half Day)</span>
+        </div>
+        <div class="summary-row">
+          <span>Date</span>
+          <span id="summaryDate">—</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total</span>
+          <span id="summaryTotal">$650</span>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Request Booking</button>
+    </form>
+  </div>
+</section>
+
+<!-- ═══════ CAPTAIN ═══════ -->
+<section class="captain-section">
+  <h2>MEET CAPTAIN WILLY</h2>
+  <p>Key West native. 20+ years on the water. USCG-licensed captain. Willy knows where the fish are, when they're biting, and how to put you on them — whether it's your first time or your fiftieth.</p>
+  <div class="captain-stats">
+    <div class="stat">
+      <div class="num">20+</div>
+      <div class="label">Years Fishing</div>
+    </div>
+    <div class="stat">
+      <div class="num">500+</div>
+      <div class="label">Sailfish Released</div>
+    </div>
+    <div class="stat">
+      <div class="num">USCG</div>
+      <div class="label">Licensed Captain</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ WHAT TO BRING ═══════ -->
+<section class="bring-section">
+  <div class="section-header">
+    <h2>WHAT TO BRING</h2>
+    <p>Willy provides rods, reels, bait, tackle, ice, and cooler. You bring:</p>
+  </div>
+  <div class="bring-grid">
+    <div class="bring-item"><span class="icon">🧴</span>Sunscreen (reef safe)</div>
+    <div class="bring-item"><span class="icon">🕶️</span>Sunglasses (polarized)</div>
+    <div class="bring-item"><span class="icon">🎒</span>Snacks & drinks</div>
+    <div class="bring-item"><span class="icon">👕</span>Rash guard / layers</div>
+    <div class="bring-item"><span class="icon">📵</span>Camera / GoPro</div>
+    <div class="bring-item"><span class="icon">🍻</span>Beer is allowed!</div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <h3>WAHOO WILLY'S</h3>
+  <p>Sport Fishing Charters</p>
+  <p>Key West, Florida</p>
+  <div class="footer-contact">
+    <a href="tel:+13055551234">(305) 555-1234</a><br>
+    <a href="mailto:captainwilly@wahoowillys.com">captainwilly@wahoowillys.com</a>
+  </div>
+  <p>⚓ Booking 7 days a week ⚓ Dawn to dusk ⚓</p>
+  <div class="copyright">© 2026 Wahoo Willy's Charter Fishing. All rights reserved.</div>
+</footer>
+
+<!-- ═══════ CONFIRMATION MODAL ═══════ -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="check">✅</div>
+    <h3>BOOKING REQUEST SENT!</h3>
+    <p>Captain Willy will text you within 24 hours to confirm your charter.</p>
+    <div class="modal-details" id="modalDetails"></div>
+    <button class="modal-close" onclick="closeModal()">Tight Lines! 🎣</button>
+  </div>
+</div>
+
+<script>
+  let selectedTrip = 'trolling';
+  let selectedTripLabel = 'Trolling — Sailfish / Marlin';
+  let selectedDuration = 4;
+  let selectedPrice = 650;
+  let selectedCharterLabel = '4 Hours (Half Day)';
+
+  function selectTrip(el) {
+    document.querySelectorAll('.option-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedTrip = el.dataset.trip;
+    const text = el.textContent.replace(/\s+/g, ' ').trim();
+    selectedTripLabel = text.split('\n')[0].split(/  +/)[0] || el.textContent.trim().split('\n')[0];
+    // Get just the first line (trip name)
+    const lines = el.textContent.trim().split('\n');
+    selectedTripLabel = lines[0].trim() + ' — ' + (lines[1] || '').trim();
+    updateSummary();
+  }
+
+  function selectCharter(el) {
+    document.querySelectorAll('.charter-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedDuration = parseInt(el.dataset.duration);
+    selectedPrice = parseInt(el.dataset.price);
+    selectedCharterLabel = selectedDuration === 4 ? '4 Hours (Half Day)' : '8 Hours (Full Day)';
+    updateSummary();
+  }
+
+  function updateSummary() {
+    document.getElementById('summaryTrip').textContent = selectedTripLabel;
+    document.getElementById('summaryDuration').textContent = selectedCharterLabel;
+    document.getElementById('summaryTotal').textContent = '$' + selectedPrice.toLocaleString();
+
+    const dateInput = document.getElementById('date');
+    const dateDisplay = dateInput.value
+      ? new Date(dateInput.value + 'T00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+      : '—';
+    document.getElementById('summaryDate').textContent = dateDisplay;
+  }
+
+  // Update summary when date changes
+  document.getElementById('date').addEventListener('change', updateSummary);
+
+  // Set min date to tomorrow
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  document.getElementById('date').min = tomorrow.toISOString().split('T')[0];
+
+  function submitBooking(e) {
+    e.preventDefault();
+
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const date = document.getElementById('date').value;
+    const partySize = document.getElementById('partySize').value;
+
+    const dateDisplay = new Date(date + 'T00:00').toLocaleDateString('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+    });
+
+    document.getElementById('modalDetails').innerHTML = `
+      <div><strong>Name:</strong> ${firstName} ${lastName}</div>
+      <div><strong>Trip:</strong> ${selectedTripLabel}</div>
+      <div><strong>Duration:</strong> ${selectedCharterLabel}</div>
+      <div><strong>Date:</strong> ${dateDisplay}</div>
+      <div><strong>Party Size:</strong> ${partySize} ${partySize == 1 ? 'person' : 'people'}</div>
+      <div><strong>Phone:</strong> ${phone}</div>
+      <div><strong>Email:</strong> ${email}</div>
+      <div style="margin-top:0.5rem;padding-top:0.5rem;border-top:1px solid #d0dae4;font-weight:700;color:#003366;">
+        Total: $${selectedPrice.toLocaleString()}
+      </div>
+    `;
+
+    document.getElementById('modalOverlay').classList.add('active');
+
+    // TODO: Send booking data to backend / webhook / HCP
+    console.log('Booking submitted:', {
+      trip: selectedTrip,
+      duration: selectedDuration,
+      price: selectedPrice,
+      firstName, lastName, phone, email, date, partySize
+    });
+
+    return false;
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('active');
+    document.getElementById('bookingForm').reset();
+    // Reset to defaults
+    document.querySelectorAll('.option-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
+    document.querySelectorAll('.charter-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
+    selectedTrip = 'trolling';
+    selectedTripLabel = 'Trolling — Sailfish / Marlin';
+    selectedDuration = 4;
+    selectedPrice = 650;
+    selectedCharterLabel = '4 Hours (Half Day)';
+    updateSummary();
+  }
+</script>
+
+</body>
+</html>
