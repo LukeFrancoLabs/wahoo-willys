@@ -857,7 +857,7 @@
     <!-- Bluewater Big Game -->
     <div class="trip-card">
       <div class="trip-card-header">
-        <h3>BLUEWATER BIG GAME</h3>
+        <h3>TROLLING & LIVE BAIT</h3>
       </div>
       <div class="trip-card-body">
         <p>Troll the deep blue or free-line live bait across the reef edge — whatever's biting, we're on 'em. Pelagic giants on light or heavy tackle, acrobatic jumps, lightning runs.</p>
@@ -902,7 +902,7 @@
         <div class="option-grid">
           <div class="option-card selected" data-trip="bluewater" onclick="selectTrip(this)">
             <span class="opt-icon">🎣</span>
-            Bluewater<br>Big Game
+            Trolling &<br>Live Bait
           </div>
           <div class="option-card" data-trip="shipwreck" onclick="selectTrip(this)">
             <span class="opt-icon">⚓</span>
@@ -979,7 +979,7 @@
       <div class="booking-summary">
         <div class="summary-row">
           <span>Trip Type</span>
-          <span id="summaryTrip">Bluewater — Big Game</span>
+          <span id="summaryTrip">Trolling & Live Bait</span>
         </div>
         <div class="summary-row">
           <span>Duration</span>
@@ -1089,7 +1089,7 @@
 
 <script>
   let selectedTrip = 'bluewater';
-  let selectedTripLabel = 'Bluewater — Big Game';
+  let selectedTripLabel = 'Trolling & Live Bait';
   let selectedDuration = 4;
   let selectedPrice = 1000;
   let selectedCharterLabel = '4 Hours (Half Day)';
@@ -1156,7 +1156,7 @@
     // ── Send to Discord webhook ──────────────────────
     const webhookUrl = 'https://discord.com/api/webhooks/1528232342928363604/7NzVNnK7sPzZF4dkyTxK9cwEKBWj3jih81JDRbZjgFoxxL3IYMH3BOG-p8-MU1RTatK6';
 
-    const tripName = selectedTrip === 'bluewater' ? 'Bluewater Big Game (Mahi/Sailfish/Wahoo/Marlin/Tuna)'
+    const tripName = selectedTrip === 'bluewater' ? 'Trolling & Live Bait (Mahi/Sailfish/Wahoo/Marlin/Tuna)'
                    : 'Shipwreck Fishing (Grouper)';
 
     const webhookPayload = {
@@ -1215,7 +1215,7 @@
     document.querySelectorAll('.option-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
     document.querySelectorAll('.charter-card').forEach((c, i) => c.classList.toggle('selected', i === 0));
     selectedTrip = 'bluewater';
-    selectedTripLabel = 'Bluewater — Big Game';
+    selectedTripLabel = 'Trolling & Live Bait';
     selectedDuration = 4;
     selectedPrice = 1000;
     selectedCharterLabel = '4 Hours (Half Day)';
