@@ -680,6 +680,104 @@
     background: var(--sand);
   }
 
+  /* ── MERCHANDISE ─────────────────────────────────── */
+  .merch-section {
+    padding: 5rem 2rem;
+    background: var(--white);
+  }
+
+  .merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 2rem auto 0;
+  }
+
+  .merch-card {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+
+  .merch-card:hover {
+    border-color: var(--ocean);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,105,148,0.15);
+  }
+
+  .merch-card-img {
+    aspect-ratio: 1/1;
+    background: linear-gradient(135deg, var(--ocean), var(--deep-ocean));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+  }
+
+  .merch-card-body {
+    padding: 1rem 1.25rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .merch-card-body h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+  }
+
+  .merch-card-body .merch-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--ocean);
+    line-height: 1;
+    margin: 0.5rem 0;
+  }
+
+  .merch-card-body .merch-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+    flex: 1;
+  }
+
+  .merch-buy-btn {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    background: var(--sun);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .merch-buy-btn:hover {
+    background: var(--sun-light);
+  }
+
+  .merch-coming-soon {
+    display: block;
+    text-align: center;
+    padding: 0.6rem;
+    background: var(--border);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   .bring-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -1150,6 +1248,76 @@
   </div>
 
   <p class="gallery-upload-note">📧 Send your charter photos to <a href="mailto:captainwilly@wahoowillys.com">captainwilly@wahoowillys.com</a> and we'll add them to the gallery!</p>
+</section>
+
+<!-- ═══════ MERCHANDISE ═══════ -->
+<section class="merch-section" id="merch">
+  <div class="section-header">
+    <h2>WAHOO WILLY GEAR</h2>
+    <p>Coming home with more than fish. Rep the brand on and off the water.</p>
+  </div>
+
+  <div class="merch-grid">
+    <div class="merch-card">
+      <div class="merch-card-img">🧢</div>
+      <div class="merch-card-body">
+        <h4>Trucker Hat</h4>
+        <div class="merch-price">$25</div>
+        <div class="merch-desc">Snapback trucker with embroidered logo. Navy/white mesh.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <div class="merch-card-img">👕</div>
+      <div class="merch-card-body">
+        <h4>Performance Tee</h4>
+        <div class="merch-price">$30</div>
+        <div class="merch-desc">Moisture-wicking performance shirt. Perfect for the boat.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <div class="merch-card-img">🧥</div>
+      <div class="merch-card-body">
+        <h4>Pullover Hoodie</h4>
+        <div class="merch-price">$55</div>
+        <div class="merch-desc">Heavyweight cotton blend. Keeps the offshore chill off.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <div class="merch-card-img">🍻</div>
+      <div class="merch-card-body">
+        <h4>Can Koozie</h4>
+        <div class="merch-price">$10</div>
+        <div class="merch-desc">Neoprene can cooler. Because warm beer is a crime at sea.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <div class="merch-card-img">🏷️</div>
+      <div class="merch-card-body">
+        <h4>Logo Sticker</h4>
+        <div class="merch-price">$5</div>
+        <div class="merch-desc">Vinyl die-cut sticker. Waterproof — slap it on the cooler.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="merch-card">
+      <div class="merch-card-img">🎣</div>
+      <div class="merch-card-body">
+        <h4>On-the-Water Bundle</h4>
+        <div class="merch-price">$65</div>
+        <div class="merch-desc">Hat + tee + koozie + sticker. Everything you need for the trip.</div>
+        <span class="merch-coming-soon">Coming Soon</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══════ CAPTAIN ═══════ -->
