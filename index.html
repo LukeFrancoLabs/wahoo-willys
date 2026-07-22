@@ -1124,7 +1124,7 @@
 
       <div class="tip-note">
         <strong> gratuity guide</strong><br>
-        It's customary to tip 20% for great service — that's how Captain Willy and crew are paid. <span id="tipAmount">Suggested tip: $200</span>
+        It's customary to tip 20% for great service — that's how Wahoo Willy & Crew are paid.
       </div>
 
       <div class="split-charter-note">
@@ -1252,10 +1252,6 @@
     document.getElementById('summaryTrip').textContent = selectedTripLabel;
     document.getElementById('summaryDuration').textContent = selectedCharterLabel;
     document.getElementById('summaryTotal').textContent = '$' + selectedPrice.toLocaleString();
-
-    // Update suggested 20% tip
-    const tip = Math.round(selectedPrice * 0.20);
-    document.getElementById('tipAmount').textContent = 'Suggested tip: $' + tip.toLocaleString();
 
     const dateInput = document.getElementById('date');
     const dateDisplay = dateInput.value
